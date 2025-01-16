@@ -8,14 +8,14 @@ const useGetRealTimeMessage = async () => {
   const { getMessage } = useSelector((store) => store.message)
 
   useEffect(() => {
-    if (!Array.isArray(getMessage)) {
-      console.error("getMessage is not an array:", getMessage)
-      return
-    }
+    // if (!Array.isArray(getMessage)) {
+    //   console.error("getMessage is not an array:", getMessage)
+    //   return
+    // }
 
     socket?.on("newMessage", (newMessage) => {
       dispatch(setGetMessage([...getMessage, newMessage]))
-      console.log("getMessage before update:", getMessage)
+      // console.log("getMessage before update:", getMessage)
     })
     return () => socket?.off("newMessage")
   }, [setGetMessage, getMessage, dispatch, socket])
