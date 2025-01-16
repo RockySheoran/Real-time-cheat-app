@@ -1,6 +1,6 @@
 export const backend_url = window.location.hostname === "localhost"
     ? "http://localhost:7000"
-    : "https://chat-app-awtp.onrender.com";
+    : "https://real-time-cheat-ap.onrender.com";
 
     
 

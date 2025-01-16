@@ -21,7 +21,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser())
 const corsOptions = {
-  origin: 'https://chat-app-awtp.onrender.com',
+  origin: 'https://chat-app1-fx7t.onrender.com',
   credentials: true, // Make sure this is lowercase
 };
 app.use(cors(corsOptions));
