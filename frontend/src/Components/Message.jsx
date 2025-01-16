@@ -11,7 +11,7 @@ const Message = () => {
   const { getMessage } = useSelector((store) => store.message)
 
   // Ensure getMessage is an array before mapping
-  if (!Array.isArray(getMessage)) return null // Prevent rendering if not an array
+  // if (!Array.isArray(getMessage)) return null // Prevent rendering if not an array
 
   // console.log(getMessage)
 
@@ -43,9 +43,13 @@ const Message = () => {
           }
         `}
       </style>
-      {getMessage.map((message) => (
-        <SingleMessage key={message?._id} message={message} />
-      ))}
+      {getMessage.length > 0 ? (
+        getMessage.map((message) => (
+          <SingleMessage key={message?._id} message={message} />
+        ))
+      ) : (
+        <h1 className="text-2xl text-center mt-6 text-white">Start Conversation</h1>
+      )}
     </div>
   )
 }
