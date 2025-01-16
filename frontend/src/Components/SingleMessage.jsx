@@ -14,7 +14,7 @@ const SingleMessage = ({ message }) => {
   const istDate = new Date(utcDate.getTime() + 5.5 * 60 * 60 * 1000) // UTC + 5:30 hours
   const time = istDate.toISOString() // Get ISO string in IST
 
-  console.log(time)
+  // console.log(time)
 
   const scroll = useRef()
 
@@ -25,7 +25,7 @@ const SingleMessage = ({ message }) => {
 
   // Handle invalid date case
   if (isNaN(utcDate.getTime())) {
-    console.log("Invalid UTC date.")
+    // console.log("Invalid UTC date.")
     return null // Return null if the date is invalid
   }
 
