@@ -8,6 +8,7 @@ import conversationRouter from "./Routes/conversationRouter.js"
 import { Server } from "socket.io"
 import http from "http"
 import { app, server } from "./Socket/Socket.js";
+import path  from "path"
 
 dotenv.config()
 
@@ -25,7 +26,7 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-
+const _dirname = path.resolve();
 // Routes
 app.use("/api/v1/user", userRoute) // Fixed: Added the leading slash
 app.use("/api/v1/message", conversationRouter)
@@ -36,6 +37,10 @@ app.get("/", (req, res) => {
   res.send("API is working")
 })
 
+app.use(express.static(path.join(_dirname,"/frontend/build")))
+app.get('*',(_,res) =>{
+  res.sendFile(path.resolve(_dirname,"frontend","build","index.html"))
+})
 server.listen(port, () => {
   db()
   console.log(`Server is connected successfully on port ${port}`)
