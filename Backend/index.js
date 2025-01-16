@@ -22,7 +22,6 @@ app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser())
 const corsOptions = {
   origin: 'https://chat-app1-fx7t.onrender.com',
-  origin: 'http://localhost:5173',
   credentials: true, // Make sure this is lowercase
 };
 app.use(cors(corsOptions));
