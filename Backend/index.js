@@ -10,7 +10,7 @@ import http from "http"
 import { app, server } from "./Socket/Socket.js";
 import path from "path"
 
-dotenv.config()
+dotenv.config();
 
 const port = process.env.PORT || 3000
 
@@ -31,10 +31,6 @@ const _dirname = path.resolve();
 app.use("/api/v1/user", userRoute) // Fixed: Added the leading slash
 app.use("/api/v1/message", conversationRouter)
 
-app.use(express.static(path.join(_dirname, "/frontend/dist")))
-app.get('*', (_, res) => {
-  res.sendFile(path.resolve(_dirname, "frontend", "dist", "index.html"))
-})
 
 app.get("/", (req, res) => {
   res.send("API is working")
