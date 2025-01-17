@@ -120,7 +120,7 @@ const Login = () => {
           </div>
           <div className=" mt-5">
             <button className="btn hover:bg-slate-300 border bg-slate-200 text-black btn-sm border-slate-700  btn-block ">
-              Login Up
+              Login
             </button>
           </div>
         </form>
