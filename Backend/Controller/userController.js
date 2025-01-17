@@ -23,10 +23,20 @@ export const userRegister = async (req, res) => {
         const user = await userModel.findOne({ userName })
         if (user) {
           return res.status(400).json({
-            message: "User already exit try different",
+            message: "UserName already exit try different",
             success: false,
           })
         }
+      
+
+        var userEmailCheck = await userModel.findOne({ email });
+      if (userEmailCheck) {
+        return res.status(400).json({
+          message: "Email already exit try different",
+          success: false,
+        })
+      }
+      
         const boy = `https://avatar.iran.liara.run/public/boy?username=${userName}`
         const female = `https://avatar.iran.liara.run/public/girl?username=${userName}`
 
