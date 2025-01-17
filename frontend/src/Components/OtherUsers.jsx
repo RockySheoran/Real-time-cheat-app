@@ -31,7 +31,35 @@ const OtherUsers = () => {
   if (!otherUser) return
 
   return (
-    <div className="scrollbar-container overflow-auto h-full scrollbar !scrollbar-thumb-rounded-full scrollbar-thumb-red-500 scrollbar-track-gray-300 scrollbar-thumb-rounded-lg scrollbar-track-rounded-lg">
+    <div className="scrollbar-container overflow-auto h-full scrollbar !scrollbar-thumb-rounded-full scrollbar-thumb-red-500 scrollbar-track-gray-300 scrollbar-thumb-rounded-lg scrollbar-track-rounded-lg"
+      style=
+      {{
+        scrollbarWidth: "thin", // For Firefox
+        scrollbarColor: "red gray", // For Firefox
+      }}>
+      
+      <style>
+        {`
+          /* For Webkit Browsers */
+          ::-webkit-scrollbar {
+            width: 10px; /* Custom scrollbar width */
+          }
+          ::-webkit-scrollbar-track {
+            background: #d1d5db; /* Tailwind's gray-300 */
+            border-radius: 8px !important;
+          }
+          ::-webkit-scrollbar-thumb {
+            background-color: #ef4444; /* Tailwind's red-500 */
+            border-radius: 8px !important;
+            border: 3px solid transparent; /* Adds spacing around thumb */
+            background-clip: content-box;
+          }
+          ::-webkit-scrollbar-thumb:hover {
+            background-color: #dc2626; /* Tailwind's red-700 for hover effect */
+          }
+        `}
+      </style>
+      
       {filterUser?.map((otherUser) => {
         return <OtherUser key={otherUser._id} otherUser={otherUser} />
       })}
