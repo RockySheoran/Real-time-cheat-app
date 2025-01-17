@@ -6,7 +6,7 @@ import {
 import Home from "./Components/Home"
 import SignUp from "./Components/SignUp"
 import Login from "./Components/Login"
-import { useDeferredValue, useEffect, useState } from "react"
+import { useContext, useDeferredValue, useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { io } from "socket.io-client"
 import { backend_url } from "./utils/API"
@@ -16,6 +16,7 @@ import ProductRoute from "./Components/ProductRoute"
 import MessageContainer from "./Components/MessageContainer"
 import SideBar from "./Components/SideBar"
 import useGetOtherUser from "./Components/Hooks/useGetOtherUser"
+import { WindowSizeContext } from "./Components/Hooks/windowSizeContext"
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,7 @@ function App() {
   const { userData } = useSelector((store) => store.user)
   const { socket } = useSelector((store) => store.socket)
   const dispatch = useDispatch()
+  const { windowWidth } = useContext(WindowSizeContext)
 
   useEffect(() => {
     if (userData) {
@@ -73,7 +75,10 @@ function App() {
   }, [userData])
 
   return (
-    <div className="App h-screen w-screen p-4  flex items-center justify-center  ">
+    <div
+      className={`${
+        windowWidth <= 640 ? "App px-2 pt-1" : "h-screen p-4"
+      }  w-screen   flex items-center justify-center  `}>
       <></>
       <RouterProvider router={router} />
     </div>

@@ -12,7 +12,7 @@ const Home = () => {
   const navigate = useNavigate()
 
   return (
-    <div className="flex p-0 mx-auto h-screen  sm:h-[450px] md:h-[550px] rounded-lg overflow-hidden bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 border border-gray-100">
+    <div className={`${windowWidth <= 640 ? "h-[100%]":'' } flex p-0 mx-auto   sm:h-[450px] md:h-[550px] rounded-lg overflow-hidden bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 border border-gray-100`}>
       {windowWidth <= 640 && !selectedUser ? <SideBar /> : ""}
 
       {windowWidth > 640 ? (

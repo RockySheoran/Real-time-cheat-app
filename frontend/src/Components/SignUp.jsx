@@ -6,8 +6,10 @@ import { Link, useNavigate } from "react-router-dom"
 import { USER_END_POINT_API } from "../utils/API"
 import toast from "react-hot-toast"
 
+
 const SignUp = () => {
   const navigate = useNavigate()
+  const [loading,setLoading] = useState(false);
   const [passShow, setpassShow] = useState({
     password: false,
     Confirm_Password: false,
@@ -32,7 +34,8 @@ const SignUp = () => {
     // window.alert(input.password)
 
     try {
-      console.log(`${USER_END_POINT_API}/register`)
+      setLoading(true);
+      // console.log(`${USER_END_POINT_API}/register`)
       const res = await axios.post(`${USER_END_POINT_API}/register`, input, {
         headers: {
           "Content-Type": "application/json",
@@ -56,6 +59,9 @@ const SignUp = () => {
       console.log(e)
       // window.alert(e)
       toast.error(e.response.data.message)
+    }
+    finally{
+      setLoading(false);
     }
   }
 
@@ -193,9 +199,20 @@ const SignUp = () => {
             </div>
           </div>
           <div className="">
-            <button className="btn hover:bg-slate-300 border bg-slate-200 text-black btn-sm border-slate-700  btn-block ">
-              Sign Up
-            </button>
+            {loading ? (
+              <button
+                disabled
+                className="btn cursor-wait hover:bg-slate-300 border bg-slate-200 text-black btn-sm border-slate-700  btn-block ">
+                <span className="loading loading-spinner text-secondary"></span>{" "}
+                <span className="text-black" > please wait</span>
+              </button>
+            ) : (
+              <button
+                type="submit"
+                className="btn hover:bg-slate-300 border bg-slate-200 text-black btn-sm border-slate-700  btn-block ">
+                Sign Up
+              </button>
+            )}
           </div>
         </form>
         <h2 className="text-gray-800 mt-4 text-center ">

@@ -14,9 +14,12 @@ const SideBar = () => {
   const [input, setInput] = useState("")
   const dispatch = useDispatch()
   const { windowWidth } = useContext(WindowSizeContext)
+  const [loading, setLoading] = useState(false)
 
   const logOutHandle = async () => {
     try {
+      setLoading(true)
+
       const res = await axios.get(`${USER_END_POINT_API}/logout`, {
         withCredentials: true,
       })
@@ -29,6 +32,8 @@ const SideBar = () => {
     } catch (error) {
       console.log(error)
       toast.success(error.response.data.message)
+    } finally {
+      setLoading(false)
     }
   }
   useEffect(() => {
@@ -44,11 +49,12 @@ const SideBar = () => {
   }
 
   return (
-    <div className={`${windowWidth < 640 ? "w-screen  " : "h-[100%] "}`}>
+    <div
+      className={`${windowWidth < 640 ? "w-screen h-[100%]  " : "h-[100%] "}`}>
       <div
         className={`${
           windowWidth < 640
-            ? "h-screen  min-w-[80%] px-1 py-1  rounded-lg overflow-hidden bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 border border-gray-100 "
+            ? "h-[100%]  min-w-[80%] px-1 py-1  rounded-lg overflow-hidden bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 border border-gray-100 "
             : ""
         } w-full h-[100%]  flex flex-col  px-1 py-1   `}>
         <form
@@ -70,10 +76,19 @@ const SideBar = () => {
         <div className="h-[72%]">
           <OtherUsers />
         </div>
-        <div className="sm:mt-auto mt-5 ">
-          <button onClick={logOutHandle} className="btn btn-sm ">
-            LogOut
-          </button>
+        <div className="mt-auto   ">
+          {loading ? (
+            <button
+              disabled
+              className="btn cursor-wait hover:bg-slate-300 border bg-slate-200 text-black btn-sm border-slate-700  btn-block ">
+              <span className="loading loading-spinner text-secondary"></span>{" "}
+              <span className="text-black"> please wait</span>
+            </button>
+          ) : (
+            <button onClick={logOutHandle} className="btn btn-sm ">
+              LogOut
+            </button>
+          )}
         </div>
       </div>
     </div>

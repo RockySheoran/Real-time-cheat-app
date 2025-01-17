@@ -29,11 +29,11 @@ const MessageContainer = () => {
   return (
     <>
       {selectedUser !== null ? (
-        <div className={`${windowWidth < 640 ? "w-screen " : "h-[100%] "}`}>
+        <div className={`${windowWidth < 640 ? "w-screen h-[100%] " : "h-[100%] "}`}>
           <div
             className={`${
               windowWidth < 640
-                ? "h-screen  min-w-[90%]   rounded-lg overflow-hidden bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 border border-gray-100 "
+                ? "h-[100%]  min-w-[90%]   rounded-lg overflow-hidden bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 border border-gray-100 "
                 : ""
             } sm:min-w-[300px] md:min-w-[450px] h-[100%]  flex flex-col     `}>
             <div
@@ -70,7 +70,7 @@ const MessageContainer = () => {
         <div
           className={`${
             windowWidth < 640
-              ? "h-screen text-white min-w-[280px] justify-center items-center rounded-lg overflow-hidden bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 border border-gray-100 "
+              ? "h-[100%] text-white min-w-[280px] justify-center items-center rounded-lg overflow-hidden bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 border border-gray-100 "
               : ""
           } sm:min-w-[300px] md:[450px]  text-white  flex flex-col  justify-center items-center   `}>
           <h1 className="text-4xl font-bold "> Hi {userData?.fullName} </h1>
