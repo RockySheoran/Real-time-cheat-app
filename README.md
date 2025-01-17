@@ -94,7 +94,9 @@ Pay using dummy visa card
 Use the admin panel to manage jobs.
 
 ## Screenshots
-
+![Image](https://github.com/user-attachments/assets/05321584-6a3e-473b-ae68-97700c60257f)
+![Image](https://github.com/user-attachments/assets/73f9dbfa-8487-426a-8857-a36189710fb2)
+![Image](https://github.com/user-attachments/assets/ff457e69-3f6f-4aed-becb-9076daa1cccc)
 
 ## API Documentation
 The API endpoints for the backend can be documented using tools like Postman or fetch by axios. Include endpoints for user authentication, menu items, orders, and more.
