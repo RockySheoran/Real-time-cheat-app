@@ -1,3 +1,22 @@
+# TASK -1 CODTECH  BUILD A REAL-TIME CHAT APP
+
+*COMPANY* : CODETECH IT SOLUTION
+
+*NAME* : ROCKY
+
+*INTERN ID* : CT6WIID
+
+*DOMAIN* : MERN STACK DEVELOPMENT
+
+*DURATION* : 4 WEEKS
+
+*MENTOR* : NEELA SANTOSH
+
+
+
+
+
+
 # MERN Stack Project: Build and Deploy a Real Time Chat App | JWT, Socket.io 
  - [URL] https://chat-app1-fx7t.onrender.com/
    
