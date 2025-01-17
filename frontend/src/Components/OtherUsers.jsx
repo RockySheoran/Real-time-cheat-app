@@ -31,7 +31,7 @@ const OtherUsers = () => {
   if (!otherUser) return
 
   return (
-    <div className="scrollbar-container overflow-auto h-[100%]  scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200">
+    <div className="scrollbar-container overflow-auto h-full scrollbar !scrollbar-thumb-rounded-full scrollbar-thumb-red-500 scrollbar-track-gray-300 scrollbar-thumb-rounded-lg scrollbar-track-rounded-lg">
       {filterUser?.map((otherUser) => {
         return <OtherUser key={otherUser._id} otherUser={otherUser} />
       })}
