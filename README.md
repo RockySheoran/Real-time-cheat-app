@@ -13,14 +13,22 @@
 *MENTOR* : NEELA SANTOSH
 
 
+## Table of Contents
+- [Introduction](#introduction)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Screenshots](#screenshots)
+- [API Documentation](#api-documentation)
+- [Contributing](#contributing)
+- [Contact](#contact)
 
-
-
-
+## introduction:
 # MERN Stack Project: Build and Deploy a Real Time Chat App | JWT, Socket.io 
  - [URL] https://chat-app1-fx7t.onrender.com/
    
-Some Features:
+## features:
 
 -   🌟 Tech stack: MERN + Socket.io + TailwindCSS + Daisy UI
 -   🎃 Authentication && Authorization with JWT
