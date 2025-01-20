@@ -11,6 +11,9 @@ const ProductRoute = ({ children }) => {
       navigate("/login")
       console.log("Redirecting to login because userData is empty")
     }
+    else{
+      navigate("/")
+    }
   }, [userData, navigate])
 
   // console.log("wdfwdsfsadss")

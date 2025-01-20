@@ -11,12 +11,13 @@ import { useDispatch, useSelector } from "react-redux"
 import { io } from "socket.io-client"
 import { backend_url } from "./utils/API"
 import { setSocket } from "./Redux/socketSlice"
-import { setOnlineUsers } from "./Redux/userSlice"
+import { setOnlineUsers, setUserData } from "./Redux/userSlice"
 import ProductRoute from "./Components/ProductRoute"
 import MessageContainer from "./Components/MessageContainer"
 import SideBar from "./Components/SideBar"
 import useGetOtherUser from "./Components/Hooks/useGetOtherUser"
 import { WindowSizeContext } from "./Components/Hooks/windowSizeContext"
+import useCookiesHandle from "./Components/Hooks/useCookiesHandle"
 
 const router = createBrowserRouter([
   {
@@ -30,11 +31,19 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <Login />,
+    element: (
+      <ProductRoute>
+        <Login />
+      </ProductRoute>
+    ),
   },
   {
     path: "/signup",
-    element: <SignUp />,
+    element: (
+      <ProductRoute>
+        <SignUp />
+      </ProductRoute>
+    ),
   },
   {
     path: "/:name",
@@ -50,9 +59,9 @@ function App() {
   // const[socketUser,setSocketUser] = useState(null);
   const { userData } = useSelector((store) => store.user)
   const { socket } = useSelector((store) => store.socket)
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const { windowWidth } = useContext(WindowSizeContext)
-
+useCookiesHandle();
   useEffect(() => {
     if (userData) {
       const socketio = io(`${backend_url}`, {

@@ -45,7 +45,8 @@ const Login = () => {
       if (res.data.success) {
         dispatch(setUserData(res.data.newUser))
         toast.success(res.data.message)
-        navigate("/")
+        navigate("/");
+        
       }
     } catch (e) {
       console.log(e)
